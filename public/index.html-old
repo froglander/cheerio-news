@@ -7,7 +7,7 @@
 <body>
 <div id="wrapper">
 
-    <h1>Just a test</h1>
+    <h1>Just a test that should no longer display...</h1>
     <div id="articles"></div>
     <div id="notes"></div>
 </div>
