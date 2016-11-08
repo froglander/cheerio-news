@@ -2,6 +2,12 @@
 
     <p>Stuff will go here, please?</p>
     {{#each articles}}
-        <h3><a href="{{this.link}}">{{this.title}}</a></h3>
+        <p data-id="{{this._id}}">{{this.title}} <br /> <a href="{{this.link}}">{{this.link}}</a></p>
     {{/each}}
+
+
+</div>
+
+<div id="wrapper">
+    <div id="notes"></div>
 </div>
