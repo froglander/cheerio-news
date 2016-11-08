@@ -25,11 +25,16 @@ var Article = require('../models/Article.js');
 router.get('/', function (req, res) {
     // router.get('/scrape', function (req, res) {
     // first, we grab the body of the html with request
-    request('https://www.smashingmagazine.com/', function (error, response, html) {
+    //request('https://www.smashingmagazine.com/', function (error, response, html) {
+    // request('http://www.developer-tech.com/', function (error, response, html) {
+    request('https://www.penny-arcade.com/news', function (error, response, html) {
+
+
         // then, we load that into cheerio and save it to $ for a shorthand selector
         var $ = cheerio.load(html);
         // now, we grab every h2 within an article tag, and do the following:
-        $('article h2').each(function (i, element) {
+        // $('article h2').each(function (i, element) {
+        $('.post h2').each(function (i, element) {
 
             // save an empty result object
             var result = {};

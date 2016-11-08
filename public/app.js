@@ -2,7 +2,7 @@
 $(document).on('click', 'p', function(){
     console.log("on click");
   // empty the notes from the note section
-  $('#notes').empty();
+  $('#savednotes').empty();
   // save the id from the p tag
   var thisId = $(this).attr('data-id');
 
@@ -52,7 +52,7 @@ $(document).on('click', '#savenote', function(){
       // log the response
       console.log(data);
       // empty the notes section
-      $('#notes').empty();
+      $('#savednotes').empty();
     });
 
   // Also, remove the values entered in the input and textarea for note entry
