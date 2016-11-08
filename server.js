@@ -20,6 +20,7 @@ app.use(express.static('public'));
 
 // Set up the mongoose mongodb connection
 mongoose.connect("mongodb://localhost/cheerio-news");
+//mongoose.connect("mongodb://heroku_n5d1ttd3:4oiehtmqju59e1aosgv8du9fkb@ds041160.mlab.com:41160/heroku_n5d1ttd3");
 var db = mongoose.connection;
 
 // Show any mongoose errors
@@ -46,7 +47,10 @@ app.use('/', routes);
 
 
 
-// listen on port 3000
-app.listen(3000, function() {
+// Make sure to use the || so it works both locally and once
+// you have deployed to heroku
+var port = process.env.PORT || 3000;
+
+app.listen(port, function() {
     console.log('App running on port 3000!');
 });
