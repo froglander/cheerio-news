@@ -1,13 +1,11 @@
 <div class="container">
-
-    <p>Stuff will go here, please?</p>
+    <div id="newnote"></div>
+    <div id="articles">
+    <h1>Article List</h1>
     {{#each articles}}
         <p data-id="{{this._id}}">{{this.title}} <br /> <a href="{{this.link}}">{{this.link}}</a></p>
     {{/each}}
-
-
+    </div>
+    <div id="savednotes"></div>
 </div>
 
-<div id="wrapper">
-    <div id="notes"></div>
-</div>
