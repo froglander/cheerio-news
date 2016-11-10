@@ -54,10 +54,12 @@ $(document).on('click', '#savenote', function () {
     // with that done
         .done(function (data) {
             // log the response
-            console.log(data);
+            console.log("after ajax post call:", data);
             // empty the notes section
             //$('#savednotes').empty();
-            $('#savednotes').val(noteText)
+            console.log("noteText:", noteText);
+            // Displays the newly saved note text in the 'saved' div
+            $('#savedbodyinput').val(noteText)
 
         });
 
