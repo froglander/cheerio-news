@@ -1,27 +1,44 @@
 body{
     /*background-image: url(https://media-mediatemple.netdna-ssl.com/wp-content/themes/smashing-magazine/assets/images/smbg.png);*/
     /*background-color: #F2F6D0*/
-    background: deepskyblue; /* For browsers that do not support gradients */
-    background: -webkit-linear-gradient(deepskyblue, navy); /* For Safari 5.1 to 6.0 */
-    background: -o-linear-gradient(deepskyblue, navy); /* For Opera 11.1 to 12.0 */
-    background: -moz-linear-gradient(deepskyblue, navy); /* For Firefox 3.6 to 15 */
-    background: linear-gradient(deepskyblue, navy); /* Standard syntax */
+    /*background: deepskyblue; !* For browsers that do not support gradients *!*/
+    /*background: -webkit-linear-gradient(deepskyblue, navy); !* For Safari 5.1 to 6.0 *!*/
+    /*background: -o-linear-gradient(deepskyblue, navy); !* For Opera 11.1 to 12.0 *!*/
+    /*background: -moz-linear-gradient(deepskyblue, navy); !* For Firefox 3.6 to 15 *!*/
+    /*background: linear-gradient(deepskyblue, navy); !* Standard syntax *!*/
+    background-image: url("background.png");
+    background-repeat: no-repeat;
+    background-position: left top;
+    background-attachment: fixed;
 }
-.jumbotron {
+#cheerio-header {
     /*background-image: url("cheerio.png");*/
     /*background-repeat: no-repeat;*/
     /*background-position: left top;*/
     font-family: 'Domine', serif;
-    color: chartreuse;
-    background-color: deepskyblue;
-    text-shadow: 2px 2px #512cff;
+    color: #e2e2e2;
+    /*background-color: deepskyblue;*/
+    text-shadow: 4px 4px #7d7777;
+    font-size: 64px;
+}
+.panel {
+    background-color: rgba(255, 255, 255, 0.34);
+}
+.panel-title{
+    font-family: 'Domine', serif;
+    font-size: 36px;
 }
 
 #articles{
-    /*width:50%;*/
-    /*height:700px;*/
-    /*display:inline-block;*/
-    /*overflow: auto;*/
+    font-family: 'Arial', sans-serif;
+    font-size: 1.4em;
+}
+a, a:visited {
+    color: #e2e2e2;
+}
+#headline h2 {
+    font-family: 'Domine', serif;
+    font-size: 36px;
 }
 #savednotes{
     /*width:25%;*/
