@@ -20,29 +20,27 @@ var Article = require('../models/Article.js');
 
 
 // Scrape stories from the presently hard-coded url each time the page is visited
-// Might add a "landing" page allowing the user to select from a couple of different
-// sites to scrape news links from (need to have sites that have the same format)
 router.get('/', function (req, res) {
+    var siteUrl = 'http://www.developer-tech.com';
     // router.get('/scrape', function (req, res) {
     // first, we grab the body of the html with request
-    //request('https://www.smashingmagazine.com/', function (error, response, html) {
-    // request('http://www.developer-tech.com/', function (error, response, html) {
-    request('https://www.penny-arcade.com/news', function (error, response, html) {
 
-
+    request(siteUrl, function (error, response, html) {
         // then, we load that into cheerio and save it to $ for a shorthand selector
         var $ = cheerio.load(html);
-        // now, we grab every h2 within an article tag, and do the following:
-        // $('article h2').each(function (i, element) {
-        $('.post h2').each(function (i, element) {
-
+        // now, we grab every h3 within an article tag, and do the following:
+        $('article h3').each(function (i, element) {
             // save an empty result object
             var result = {};
 
             // add the text and href of every link,
             // and save them as properties of the result obj
             result.title = $(this).children('a').text();
-            result.link = $(this).children('a').attr('href');
+            // Had to include the site url with the links because this website
+            // uses all internal links which don't work very well from an
+            // external site :)
+            result.link = siteUrl + $(this).children('a').attr('href');
+
 
             // using our Article model, create a new entry.
             // Notice the (result):
@@ -72,8 +70,6 @@ router.get('/', function (req, res) {
         console.log("mongoose articles:", articles);
         res.render('index', {articles: articles});
     })
-
-
 });
 
 // this will get the articles we scraped from the mongoDB and display as json

@@ -1,11 +1,35 @@
-<div class="container">
-    <div id="newnote"></div>
-    <div id="articles">
-    <h1>Article List</h1>
-    {{#each articles}}
-        <p data-id="{{this._id}}">{{this.title}} <br /> <a href="{{this.link}}">{{this.link}}</a></p>
-    {{/each}}
+<div class="jumbotron">
+    <div class="container" id="cheerio-header">
+        <h1>Cheerio-News!</h1>
     </div>
-    <div id="savednotes"></div>
+</div>
+<div class="container-fluid">
+    <div class="col-sm-6 col-sm-offset-1">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Articles</h3>
+            </div>
+            <div class="panel-body" id="articles">
+                {{#each articles}}
+                    <p data-id="{{this._id}}">{{this.title}} <br/> <a href="{{this.link}}">{{this.link}}</a></p>
+                {{/each}}
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <div id="headline"></div>
+            </div>
+            <div class="panel-body">
+                <div class="col-sm-6">
+                    <div id="newnote"></div>
+                </div>
+                <div class="col-sm-6">
+                    <div id="savednotes"></div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
