@@ -43,7 +43,7 @@ app.engine("handlebars", exphbs({
 app.set("view engine", "handlebars");
 
 // Set up routes
-var routes = require('./controllers/news.js');
+var routes = require('./controllers/news-routes.js');
 app.use('/', routes);
 
 // Set app to listen to appropriate port

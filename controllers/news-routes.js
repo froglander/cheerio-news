@@ -133,4 +133,16 @@ router.post('/articles/:id', function (req, res) {
     });
 });
 
+router.post('/delete/:id', function (req, res) {
+    var deleteId = req.params.id;
+    console.log("note id to be deleted:", deleteId);
+
+    Note.remove({_articleId: deleteId}, function(err) {
+        console.log("Notes removed");
+        if (err) {
+            console.log(err);
+        }
+    })
+});
+
 module.exports = router;

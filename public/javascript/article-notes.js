@@ -1,7 +1,7 @@
 $('#savenote').prop("disabled", true);
 
 // When the value of the text area changes...
-$("#newbodyinput").on("input", function() {
+$("#newbodyinput").on("input", function () {
     // If there's at least one character...
     if ($(this).val().length > 0) {
         // Enable the button.
@@ -22,7 +22,6 @@ $(document).on("click", 'p', function () {
     // Empty the notes section to be ready for the new article notes
     $savedNotes.empty();
     $newNote.empty();
-    // $headline.empty();
 
     // Save the id from the <p> tag
     var thisId = $(this).attr('data-id');
@@ -38,6 +37,9 @@ $(document).on("click", 'p', function () {
             $headline.html(data.title);
             // Update the save note button with the current article id
             $('#savenote').attr('data-id', data._id);
+            // Also update the delete button with the current article id in case we
+            // want to delete all notes for that article
+            $('#deletenotes').attr('data-id', data._id);
 
             // Since there can be multiple notes for a single article, need to
             // query for the notes after clicking, which maybe can be part of the
@@ -63,7 +65,9 @@ $(document).on("click", 'p', function () {
 $(document).on("click", "#savenote", function () {
     var thisId = $(this).attr('data-id');
 
-    var noteText = $('#newbodyinput').val();
+    var $newbodyinput = $('#newbodyinput');
+
+    var noteText = $newbodyinput.val();
 
     $.ajax({
         method: "POST",
@@ -79,5 +83,24 @@ $(document).on("click", "#savenote", function () {
             $('#savedbodyinput').append(noteText + "\n");
         });
     // Clear the newbodyinput text
-    $('#newbodyinput').val("");
+    $newbodyinput.val("");
+});
+
+// Delete all notes
+$(document).on("click", "#deletenotes", function () {
+    var thisId = $(this).attr('data-id');
+
+    console.log("article-notes id to delete:", thisId);
+    // Putting this here because although it seems to be deleting notes
+    // it doesn't get to the done portion?
+    $('#savedbodyinput').empty();
+
+    $.ajax({
+        method: "POST",
+        url: "/delete/" + thisId
+    })
+        .done(function () {
+            console.log("did I get here?")
+
+        })
 });
