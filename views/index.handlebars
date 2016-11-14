@@ -1,8 +1,6 @@
-<!--<div class="jumbotron">-->
-    <div class="container">
-        <h1 id="cheerio-header">Cheerio-News!</h1>
-    </div>
-<!--</div>-->
+<div class="container">
+    <h1 id="cheerio-header">Cheerio-News!</h1>
+</div>
 <div class="container-fluid">
     <div class="col-sm-6 col-sm-offset-1">
         <div class="panel panel-default">
@@ -19,17 +17,27 @@
     <div class="col-sm-4">
         <div class="panel panel-default">
             <div class="panel-heading">
-                <div id="headline"></div>
+                <h3 class="panel-title">Notes</h3>
             </div>
             <div class="panel-body">
-                <div class="col-sm-6">
-                    <div id="newnote"></div>
+                <div class="col-sm-12">
+                    <h2 id="headline""></h2>
                 </div>
                 <div class="col-sm-6">
-                    <div id="savednotes"></div>
+                    <div id="newnote">
+                        <span class="sm-title">New Note</span>
+                        <textarea id="newbodyinput" name="body"></textarea>
+                        <button id="savenote" data-id="" class="btn btn-info pull-right">Save Note</button>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div id="savednotes">
+                        <span class="sm-title">Saved Notes</span>
+                        <textarea id="savedbodyinput" name="body"></textarea>
+                        <button id="deletenotes" class="btn btn-info pull-right">Delete Notes</button>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-
