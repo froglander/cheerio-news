@@ -19,9 +19,9 @@ app.use(express.static('public'));
 
 // Set up the mongoose mongodb connection
 // Local for dev purposes
-mongoose.connect("mongodb://localhost/cheerio-news");
+// mongoose.connect("mongodb://localhost/cheerio-news");
 // Heroku version
-// mongoose.connect("mongodb://heroku_n5d1ttd3:4oiehtmqju59e1aosgv8du9fkb@ds041160.mlab.com:41160/heroku_n5d1ttd3");
+mongoose.connect("mongodb://heroku_n5d1ttd3:4oiehtmqju59e1aosgv8du9fkb@ds041160.mlab.com:41160/heroku_n5d1ttd3");
 var db = mongoose.connection;
 
 // Show any mongoose errors
