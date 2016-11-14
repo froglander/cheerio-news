@@ -1,3 +1,18 @@
+$('#savenote').prop("disabled", true);
+
+// When the value of the text area changes...
+$("#newbodyinput").on("input", function() {
+    // If there's at least one character...
+    if ($(this).val().length > 0) {
+        // Enable the button.
+        $("#savenote").prop("disabled", false);
+    } else {
+        // Else, disable the button.
+        $("#savenote").prop("disabled", true);
+    }
+});
+
+
 // Code to process clicking on text within a <p> tag
 $(document).on("click", 'p', function () {
     var $newNote = $('#newbodyinput');
@@ -60,6 +75,8 @@ $(document).on("click", "#savenote", function () {
         .done(function (data) {
             console.log("after ajax post:", data);
             console.log("noteText:", noteText);
+            // Append the new note to the existing notes
+            $('#savedbodyinput').append(noteText + "\n");
         });
     // Clear the newbodyinput text
     $('#newbodyinput').val("");

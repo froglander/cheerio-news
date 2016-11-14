@@ -25,7 +25,7 @@ mongoose.connect("mongodb://heroku_n5d1ttd3:4oiehtmqju59e1aosgv8du9fkb@ds041160.
 var db = mongoose.connection;
 
 // Show any mongoose errors
-db.on("erro", function(error) {
+db.on("error", function(error) {
     console.log("Mongoose error:", error);
 });
 
